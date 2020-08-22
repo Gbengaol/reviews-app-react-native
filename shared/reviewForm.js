@@ -73,7 +73,9 @@ export default function ReviewForm({ addReview }) {
         <Text style={globalStyles.errorText}>
           {formik.touched.rating && formik.errors.rating}
         </Text>
-        <CustomButton title="Submit Review" onPress={formik.handleSubmit} />
+        <CustomButton onPress={formik.handleSubmit}>
+          <Text style={globalStyles.buttonText}>Submit Review</Text>
+        </CustomButton>
       </View>
     </View>
   );

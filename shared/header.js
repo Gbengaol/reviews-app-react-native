@@ -3,24 +3,29 @@ import { View, Text, StyleSheet, Image, ImageBackground } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import Logo from "../assets/heart_logo.png";
 import BackgroundImage from "../assets/game_bg.png";
+import { useTheme } from "react-native-paper";
 
 export default function Header({ title, navigation }) {
   const showMenu = () => {
     navigation.openDrawer();
   };
+  const { colors } = useTheme();
   return (
-    <ImageBackground style={styles.header} source={BackgroundImage}>
+    <View style={{ ...styles.header }}>
       <MaterialIcons
         name="menu"
         size={28}
         onPress={showMenu}
         style={styles.icon}
+        color={colors.text}
       />
       <View style={styles.headerTitle}>
         <Image source={Logo} style={styles.headerImage} />
-        <Text style={styles.headerText}>{title}</Text>
+        <Text style={{ ...styles.headerText, color: colors.text }}>
+          {title}
+        </Text>
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -37,7 +42,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 1.5,
     fontSize: 24,
-    color: "#000",
   },
   icon: {
     position: "absolute",

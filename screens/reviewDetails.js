@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { globalStyles } from "../styles/globalStyles";
 import Card from "../shared/card";
+import { useTheme } from "react-native-paper";
 
 const images = {
   "1": require("../assets/rating-1.png"),
@@ -11,16 +12,19 @@ const images = {
   "5": require("../assets/rating-5.png"),
 };
 
-export default function ReviewDetails({ route, navigation }) {
+export default function ReviewDetails({ route }) {
   const { item } = route.params;
+  const { colors } = useTheme();
 
   return (
     <View style={globalStyles.container}>
       <Card>
-        <Text style={styles.ratingTitle}>{item.title}</Text>
-        <Text>{item.body}</Text>
-        <View style={styles.rating}>
-          <Text>GameZone Rating:</Text>
+        <Text style={{ ...styles.ratingTitle, color: colors.background }}>
+          {item.title}
+        </Text>
+        <Text style={{ color: colors.background }}>{item.body}</Text>
+        <View style={{ ...styles.rating, borderTopColor: colors.background }}>
+          <Text style={{ color: colors.background }}>GameZone Rating:</Text>
           <Image source={images[item.rating]} />
         </View>
       </Card>
@@ -35,7 +39,6 @@ const styles = StyleSheet.create({
     marginTop: 16,
     paddingTop: 16,
     borderTopWidth: 1,
-    borderTopColor: "#000",
   },
   ratingTitle: {
     fontWeight: "bold",

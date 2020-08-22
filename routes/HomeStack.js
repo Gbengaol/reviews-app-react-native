@@ -3,6 +3,9 @@ import React from "react";
 import Homepage from "../screens/homepage";
 import ReviewDetails from "../screens/reviewDetails";
 import Header from "../shared/header";
+import HelpStack from "./HelpStack";
+import ProfileStack from "./ProfileStack";
+import UsersStack from "./UsersStack";
 
 const HomeStackNavigator = createStackNavigator();
 
@@ -22,6 +25,21 @@ function HomeStack({ navigation }) {
         name="ReviewDetails"
         component={ReviewDetails}
         options={{ title: "Review Details" }}
+      />
+      <HomeStackNavigator.Screen
+        name="Help"
+        component={HelpStack}
+        options={{ title: "Help" }}
+      />
+      <HomeStackNavigator.Screen
+        name="Profile"
+        component={ProfileStack}
+        options={{ title: "Profile" }}
+      />
+      <HomeStackNavigator.Screen
+        name="Users"
+        component={UsersStack}
+        options={{ title: "Users" }}
       />
     </HomeStackNavigator.Navigator>
   );

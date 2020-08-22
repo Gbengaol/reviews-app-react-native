@@ -10,7 +10,6 @@ export const globalStyles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "alata-regular",
     fontWeight: "bold",
-    color: "#333",
   },
   paragraph: {
     marginVertical: 8,
@@ -24,5 +23,19 @@ export const globalStyles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: -10,
     marginBottom: 20,
+  },
+  buttonText: {
+    color: "#fff",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    fontSize: 16,
+    textAlign: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  authButtonText: {
+    color: "#fff",
+    fontSize: 16,
   },
 });
